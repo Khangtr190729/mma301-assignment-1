@@ -1,50 +1,50 @@
-# Activity / Interest Model Definition
+# Cấu trúc Dữ liệu Activity / Interest
 
-This document defines the structure for the collections rendered in the `Activity/Interests` screen.
+Tài liệu này định nghĩa cấu trúc dữ liệu cho mảng danh sách được hiển thị trên màn hình `Activity/Interests`.
 
-## 1. Data Structure
+## 1. Cấu trúc dữ liệu
 
-The collection will be an array of objects. Each object represents a single activity or interest.
+Collection sẽ là một mảng (array) chứa các objects. Mỗi object đại diện cho một activity hoặc interest.
 
 ```javascript
 const ActivityItemModel = {
-  id: "String",         // Unique identifier
-  title: "String",      // Name of the activity/interest
-  description: "String",// Short detail about the item
-  isFavorite: "Boolean",// State indicating user interaction/preference
-  category: "String",   // (Optional) Useful if grouping by SectionList
+  id: "String",         // Định danh duy nhất
+  title: "String",      // Tên hoạt động/sở thích
+  description: "String",// Mô tả ngắn
+  isFavorite: "Boolean",// Trạng thái tương tác/sở thích của người dùng
+  category: "String",   // (Tùy chọn) Hữu ích nếu dùng SectionList để gom nhóm
 }
 ```
 
-**Example Data Set:**
+**Ví dụ Dữ liệu mẫu:**
 ```javascript
 const initialActivities = [
   {
     id: "a1",
-    title: "React Native Development",
-    description: "Building cross-platform mobile applications.",
+    title: "Phát triển React Native",
+    description: "Xây dựng ứng dụng di động đa nền tảng.",
     isFavorite: true,
     category: "Tech"
   },
   {
     id: "a2",
-    title: "Reading Sci-Fi",
-    description: "Exploring futuristic concepts through literature.",
+    title: "Đọc sách Khoa học viễn tưởng",
+    description: "Khám phá các ý tưởng tương lai qua văn học.",
     isFavorite: false,
     category: "Hobby"
   },
-  // ... more items
+  // ... thêm nhiều mục khác
 ];
 ```
 
-## 2. Item Identity and Key Strategy
+## 2. Chiến lược Định danh và Key (Item Identity and Key Strategy)
 
-- **Key Strategy**: React Native's `FlatList` and `SectionList` require unique keys for performance and state consistency during re-renders.
-- **Implementation**: The `id` field (e.g., `"a1"`, `"a2"`) will be used as the unique key. 
-- **Code Usage**: The `keyExtractor` prop on the list component will map to this ID: 
+- **Chiến lược Key**: React Native `FlatList` và `SectionList` yêu cầu key duy nhất để đảm bảo hiệu suất và đồng bộ state khi re-render.
+- **Triển khai**: Thuộc tính `id` (ví dụ: `"a1"`, `"a2"`) sẽ được làm unique key.
+- **Cách dùng trong code**: Prop `keyExtractor` trên FlatList sẽ trỏ vào ID này: 
   `keyExtractor={(item) => item.id}`
-- **Why?**: Using unique IDs instead of array indices prevents rendering bugs when items are reordered, filtered, or mutated (e.g., toggling `isFavorite`).
+- **Tại sao?**: Dùng ID duy nhất thay vì chỉ số mảng (index) giúp ngăn ngừa lỗi render khi các mục bị đổi chỗ, bị lọc (filter) hoặc bị đổi trạng thái (như bấm `isFavorite`).
 
-## 3. State Interaction
-- If a user marks an item as a favorite, a function will map over the array, find the item by `id`, and toggle its `isFavorite` boolean.
-- **Immutability rule**: We will create a *new* array with the updated object rather than mutating the existing array directly, ensuring React Native detects the state change and triggers a re-render.
+## 3. Tương tác với State
+- Nếu người dùng đánh dấu Favorite, hàm sẽ chạy qua (map) mảng, tìm mục có `id` tương ứng và đảo ngược giá trị `isFavorite` (từ true thành false hoặc ngược lại).
+- **Quy tắc bất biến (Immutability)**: Sẽ phải tạo ra một mảng *mới* kèm theo object đã cập nhật chứ không thay đổi trực tiếp (mutate) trên mảng cũ, đảm bảo React Native nhận diện được sự thay đổi và kích hoạt việc render lại.

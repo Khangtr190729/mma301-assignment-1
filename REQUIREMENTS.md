@@ -1,40 +1,40 @@
-# Requirements Specification
+# Đặc tả Yêu cầu (Requirements Specification)
 
-## 1. Functional Requirements
-- **Welcome & Navigation**: The app must have a Home screen that welcomes the user and allows navigation to other areas.
-- **Profile Display**: A Profile screen must display user information including name, bio, and avatar.
-- **Profile Editing**: An Edit Profile screen must allow the user to modify their profile data using a form.
-- **Form Validation**: The profile edit form must validate input before saving (e.g., name cannot be empty).
-- **Activity/Interests Tracking**: An Activity or Interests screen must list items using a scrolling list. Users must be able to interact with the list (e.g., select, mark, or filter items).
-- **Settings & Preferences**: A Settings screen must allow users to toggle app-wide preferences such as a Light/Dark theme.
-- **Data Persistence**: Profile data, theme settings, and other app-wide preferences must be saved locally so they persist across app restarts.
+## 1. Yêu cầu chức năng
+- **Welcome & Navigation**: Ứng dụng phải có màn hình Home chào mừng người dùng và cho phép điều hướng đến các khu vực khác.
+- **Hiển thị Profile**: Màn hình Profile phải hiển thị thông tin người dùng bao gồm tên (name), tiểu sử (bio) và ảnh đại diện (avatar).
+- **Chỉnh sửa Profile**: Màn hình Edit Profile phải cho phép người dùng sửa đổi dữ liệu cá nhân thông qua một biểu mẫu (form).
+- **Xác thực Form (Validation)**: Biểu mẫu chỉnh sửa profile phải kiểm tra dữ liệu đầu vào trước khi lưu (ví dụ: tên không được để trống).
+- **Theo dõi Hoạt động/Sở thích**: Màn hình Activity hoặc Interests phải hiển thị danh sách các mục bằng danh sách cuộn. Người dùng phải có thể tương tác với danh sách (ví dụ: chọn, đánh dấu, hoặc lọc danh sách).
+- **Cài đặt & Tùy chọn**: Màn hình Settings phải cho phép người dùng bật/tắt các tùy chọn toàn ứng dụng, chẳng hạn như giao diện Sáng/Tối (Light/Dark theme).
+- **Lưu trữ Dữ liệu (Persistence)**: Dữ liệu profile, cài đặt giao diện và các tùy chọn toàn ứng dụng khác phải được lưu cục bộ để có thể giữ nguyên sau khi khởi động lại ứng dụng.
 
-## 2. Technical Requirements
-- **Framework**: React Native with Expo.
-- **Language**: JavaScript.
-- **Navigation**: Stack Navigation (or equivalent class configuration) connecting at least 5 screens.
-- **State Management**: `useState` for local state and Context API for global state.
-- **Forms**: Controlled inputs for forms (Formik/Yup or custom class-based validation is allowed).
-- **Lists**: `FlatList` or `SectionList` to render collections of data.
-- **Storage**: `AsyncStorage` for local data persistence.
-- **Styling**: `StyleSheet` or Styled Components utilizing Flexbox.
-- **UI Components**: Must include custom reusable components.
+## 2. Yêu cầu kỹ thuật
+- **Framework**: React Native với Expo.
+- **Ngôn ngữ**: JavaScript.
+- **Điều hướng (Navigation)**: Stack Navigation (hoặc cấu hình tương đương) kết nối ít nhất 5 màn hình.
+- **Quản lý Trạng thái (State Management)**: Dùng `useState` cho state cục bộ và Context API cho global state.
+- **Forms**: Dùng Controlled inputs cho biểu mẫu (có thể dùng Formik/Yup hoặc tự viết validation).
+- **Danh sách (Lists)**: Dùng `FlatList` hoặc `SectionList` để render dữ liệu collection.
+- **Lưu trữ**: Dùng `AsyncStorage` để lưu trữ dữ liệu cục bộ.
+- **Giao diện (UI)**: Dùng `StyleSheet` hoặc Styled Components kết hợp Flexbox.
+- **Thành phần UI (Components)**: Phải sử dụng các component có thể tái sử dụng.
 
-## 3. Constraints
-- The project must be named according to the convention `StudentName_ClassCode` or class rules.
-- State mutation must be avoided (do not mutate objects/arrays directly).
-- Clean folder structure separating screens, components, and services.
+## 3. Các ràng buộc
+- Tên project phải đặt theo quy ước `TênSinhViên_MãLớp` hoặc quy ước của lớp.
+- Không được làm thay đổi trực tiếp (mutate) state (không mutate object/array trực tiếp).
+- Cấu trúc thư mục phải sạch sẽ, tách biệt màn hình (screens), thành phần (components), và dịch vụ (services).
 
-## 4. Out-of-Scope Requirements
-- **Backend & APIs**: No real Firebase, backend, or real APIs are required.
-- **Authentication**: No production-ready login/authentication system.
-- **Advanced State Management**: Redux is not required (Context API is sufficient).
-- **TypeScript**: Not required for this assignment.
-- **Complex Animations**: High-end animations or external libraries outside core evidence are not expected or highly rewarded.
+## 4. Các yêu cầu ngoài phạm vi
+- **Backend & APIs**: Không yêu cầu dùng Firebase, backend, hoặc API thật.
+- **Xác thực (Authentication)**: Không yêu cầu hệ thống đăng nhập/xác thực thực tế.
+- **Quản lý State phức tạp**: Không yêu cầu Redux (Context API là đủ).
+- **TypeScript**: Không yêu cầu trong bài tập này.
+- **Animation phức tạp**: Các hiệu ứng chuyển động cao cấp hoặc thư viện ngoài bằng chứng cốt lõi không được yêu cầu hoặc đánh giá quá cao.
 
-## 5. Failure & Edge Cases
-- **First Run**: When `AsyncStorage` has no data, the app must load safely with sensible defaults and not crash.
-- **Data Corruption**: If local data is missing or JSON parsing fails (corrupt data), the app must gracefully fallback to default values without crashing.
-- **Validation Errors**: Submitting an empty or invalid name must prevent saving and display a clear error message.
-- **Cancel Editing**: Modifying the profile but pressing 'Cancel' must discard changes and revert to the previously saved state without affecting the persistent storage.
-- **Empty Lists**: If the activity/interests list is empty, a user-friendly "empty state" message must be rendered.
+## 5. Các trường hợp lỗi & Ngoại lệ (Edge Cases)
+- **Chạy lần đầu (First Run)**: Khi `AsyncStorage` chưa có dữ liệu, ứng dụng phải tải an toàn với các giá trị mặc định hợp lý và không bị crash.
+- **Dữ liệu bị lỗi**: Nếu dữ liệu cục bộ bị thiếu hoặc lỗi cú pháp JSON (corrupt data), ứng dụng phải chuyển về giá trị mặc định (fallback) một cách mượt mà, không bị crash.
+- **Lỗi xác thực (Validation Errors)**: Nếu người dùng gửi tên trống hoặc không hợp lệ, hệ thống phải chặn việc lưu và hiển thị thông báo lỗi rõ ràng.
+- **Hủy chỉnh sửa (Cancel Editing)**: Thay đổi thông tin nhưng nhấn 'Cancel' phải hủy bỏ các thay đổi và khôi phục lại trạng thái đã lưu trước đó, không ảnh hưởng đến dữ liệu lưu trữ.
+- **Danh sách trống (Empty Lists)**: Nếu danh sách hoạt động/sở thích trống, phải hiển thị một thông báo "empty state" thân thiện với người dùng.

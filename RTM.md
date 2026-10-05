@@ -1,14 +1,14 @@
-# Requirement Traceability Matrix (RTM)
+# Ma trận Truy xuất Yêu cầu (RTM)
 
-| ID  | Requirement | UI Evidence | Code Area | Test Case | Expected Evidence |
+| ID  | Yêu cầu | Bằng chứng UI | Khu vực Code | Test Case | Bằng chứng mong đợi |
 | --- | --- | --- | --- | --- | --- |
-| **R01** | Expo/React Native project runs correctly | Cold start | `package.json`, App config | Start app from terminal | App launches without fatal errors |
-| **R02** | Navigation between ≥5 screens | Screen transition / Back button | Navigation config (`App.js` or `navigation/`) | Open each screen & navigate back | Smooth transition; no missing screens |
-| **R03** | Display Profile Data | ProfileScreen with default/persisted data | `ProfileScreen.js` | Read profile on startup | Correct name/bio/avatar shown |
-| **R04** | Edit Profile + Validation | Valid/Invalid/Cancel flows | Form component / state logic | Submit empty name, submit valid name, cancel edits | Error on invalid; Update on valid; No change on cancel |
-| **R05** | Shared Theme/Preference | Theme toggle works across screens | `ThemeContext.js` | Toggle Dark/Light mode in Settings | UI updates app-wide immediately |
-| **R06** | FlatList/SectionList | Activity/Interests screen | `ActivityScreen.js` (FlatList/SectionList) | View list with items; view empty list | List renders correctly; shows empty state if 0 items |
-| **R07** | Persistence (AsyncStorage) | First-run and restart persistence | Storage helper, `useEffect` | Restart app after saving profile/theme | Data is restored from storage |
-| **R08** | Reusable Components | Render/reuse components (e.g., ProfileCard) | `components/` folder | Check UI for repeated elements | Components are imported and reused cleanly |
-| **R09** | Responsive Flexbox/Style | Portrait layouts, basic sizing | Stylesheets within screens/components | Run on different screen sizes (simulator) | UI aligns correctly using flex properties |
-| **R10** | Error/Fallback State | Invalid local data or no item | Storage parsing / Validation | Manually corrupt storage / clear data | App falls back to default values without crashing |
+| **R01** | Project Expo/React Native chạy đúng | Khởi động nguội (Cold start) | `package.json`, App config | Chạy app từ terminal | Ứng dụng mở lên không bị lỗi crash |
+| **R02** | Điều hướng giữa ≥5 màn hình | Chuyển màn hình / Nút Back | Cấu hình Navigation (`App.js` hoặc `navigation/`) | Mở từng màn hình & quay lại | Chuyển mượt; không thiếu màn hình |
+| **R03** | Hiển thị dữ liệu Profile | ProfileScreen với dữ liệu mặc định/đã lưu | `ProfileScreen.js` | Đọc profile khi khởi động | Hiển thị đúng tên/bio/avatar |
+| **R04** | Edit Profile + validation | Luồng Hợp lệ/Lỗi/Hủy | Form component / state logic | Nộp tên trống, nộp tên hợp lệ, hủy sửa | Báo lỗi khi sai; Cập nhật khi đúng; Không đổi khi hủy |
+| **R05** | Shared Theme/Preference | Chuyển đổi theme qua lại | `ThemeContext.js` | Bật/Tắt chế độ Tối/Sáng trong Settings | UI cập nhật toàn app ngay lập tức |
+| **R06** | FlatList/SectionList | Màn hình Activity/Interests | `ActivityScreen.js` (FlatList/SectionList) | Xem danh sách có mục; danh sách trống | Hiển thị danh sách; có thông báo khi trống (0 items) |
+| **R07** | Persistence (AsyncStorage) | Lưu giữ sau khi restart & chạy lần đầu | Storage helper, `useEffect` | Khởi động lại app sau khi lưu profile/theme | Dữ liệu được khôi phục từ bộ nhớ |
+| **R08** | Reusable Components | Render/tái sử dụng component | Thư mục `components/` | Kiểm tra các yếu tố lặp lại trên UI | Components được import và dùng lại sạch sẽ |
+| **R09** | Responsive Flexbox/Style | Bố cục dọc, kích cỡ cơ bản | Stylesheets trong màn hình/components | Chạy trên nhiều kích thước màn hình | Các thành phần căn chỉnh chuẩn bằng flex |
+| **R10** | Error/Fallback State | Dữ liệu cục bộ lỗi hoặc không có | Phân tích Storage / Validation | Cố tình làm hỏng storage / xóa data | App tự động fallback về giá trị mặc định không bị crash |

@@ -1,41 +1,41 @@
-# Profile Model Definition
+# Cấu trúc Dữ liệu Profile (Profile Model)
 
-This document outlines the data structure and validation rules for the User Profile.
+Tài liệu này định nghĩa cấu trúc dữ liệu và quy tắc xác thực cho User Profile.
 
-## 1. Data Structure
+## 1. Cấu trúc dữ liệu
 
-The Profile data will be represented as a plain JavaScript object.
+Dữ liệu Profile sẽ được đại diện bởi một object JavaScript.
 
 ```javascript
 const ProfileModel = {
-  id: "uuid-or-fixed-string", // Optional: useful if we expand to multi-user later
-  name: "String",             // User's display name
-  bio: "String",              // Short biography or description
-  avatarUrl: "String",        // URI to an image (local asset or remote URL)
-  location: "String",         // (Optional/Transfer task) User's location
+  id: "uuid-hoac-chuoi-co-dinh", // Tùy chọn: hữu ích nếu mở rộng nhiều user sau này
+  name: "String",               // Tên hiển thị người dùng
+  bio: "String",                // Tiểu sử hoặc mô tả ngắn
+  avatarUrl: "String",          // Đường dẫn ảnh (local asset hoặc remote URL)
+  location: "String",           // (Tùy chọn) Vị trí người dùng
 }
 ```
 
-**Default / Fallback State:**
+**Trạng thái mặc định (Fallback State):**
 ```javascript
 const defaultProfile = {
   name: "Guest User",
-  bio: "Hello, I am using the Profile & Activity App!",
-  avatarUrl: "default_avatar_path", // Path to a local fallback image
+  bio: "Xin chào, tôi đang dùng Profile & Activity App!",
+  avatarUrl: "default_avatar_path", // Link hình mặc định
 }
 ```
 
-## 2. Validation Rules
+## 2. Quy tắc xác thực (Validation Rules)
 
-When the user attempts to save changes in the `EditProfileScreen`, the following validation rules must be enforced before updating state or persistent storage.
+Khi người dùng cố lưu trong `EditProfileScreen`, các quy tắc sau phải được đảm bảo trước khi cập nhật state hay AsyncStorage.
 
-| Field | Rule | Error Message (if failed) |
+| Trường (Field) | Quy tắc (Rule) | Thông báo lỗi (nếu vi phạm) |
 | :--- | :--- | :--- |
-| `name` | **Required**. Cannot be empty, null, or only whitespace. | "Name is required." |
-| `name` | **Length constraint**. Must be at least 2 characters long. | "Name must be at least 2 characters." |
-| `bio` | **Length constraint**. Maximum of 150 characters. (Optional rule, but good practice). | "Bio cannot exceed 150 characters." |
+| `name` | **Bắt buộc**. Không được để trống, null, hoặc toàn dấu cách. | "Tên không được bỏ trống." (Name is required) |
+| `name` | **Độ dài**. Tối thiểu 2 ký tự. | "Tên phải có ít nhất 2 ký tự." |
+| `bio` | **Độ dài tối đa**. Tối đa 150 ký tự. (Tùy chọn, nhưng nên có). | "Tiểu sử không vượt quá 150 ký tự." |
 
-## 3. Storage Strategy
-- The object will be serialized using `JSON.stringify(profile)` before saving to `AsyncStorage`.
-- Upon retrieval, it will be parsed using `JSON.parse()`. 
-- If parsing fails, the `defaultProfile` object will be used.
+## 3. Chiến lược Lưu trữ (Storage Strategy)
+- Object sẽ được chuyển thành chuỗi dùng `JSON.stringify(profile)` trước khi lưu vào `AsyncStorage`.
+- Khi lấy lên, nó sẽ được phân giải bằng `JSON.parse()`. 
+- Nếu phân giải gặp lỗi, sẽ dùng lại biến `defaultProfile`.
