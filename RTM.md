@@ -2,8 +2,8 @@
 
 | ID  | Yêu cầu | Bằng chứng UI | Khu vực Code | Test Case | Bằng chứng mong đợi |
 | --- | --- | --- | --- | --- | --- |
-| **R01** | Project Expo/React Native chạy đúng | Khởi động nguội (Cold start) | `package.json`, App config | Chạy app từ terminal | Ứng dụng mở lên không bị lỗi crash |
-| **R02** | Điều hướng giữa ≥5 màn hình | Chuyển màn hình / Nút Back | Cấu hình Navigation (`App.js` hoặc `navigation/`) | Mở từng màn hình & quay lại | Chuyển mượt; không thiếu màn hình |
+| **R01** | Project Expo/React Native chạy đúng | ✅ Khởi động nguội (Cold start) | `package.json`, App config | Chạy app từ terminal | Ứng dụng mở lên không bị lỗi crash |
+| **R02** | Điều hướng giữa ≥5 màn hình | ✅ Chuyển màn hình / Nút Back | Cấu hình Navigation (`App.js` hoặc `navigation/`) | Mở từng màn hình & quay lại | Chuyển mượt; không thiếu màn hình |
 | **R03** | Hiển thị dữ liệu Profile | ProfileScreen với dữ liệu mặc định/đã lưu | `ProfileScreen.js` | Đọc profile khi khởi động | Hiển thị đúng tên/bio/avatar |
 | **R04** | Edit Profile + validation | Luồng Hợp lệ/Lỗi/Hủy | Form component / state logic | Nộp tên trống, nộp tên hợp lệ, hủy sửa | Báo lỗi khi sai; Cập nhật khi đúng; Không đổi khi hủy |
 | **R05** | Shared Theme/Preference | Chuyển đổi theme qua lại | `ThemeContext.js` | Bật/Tắt chế độ Tối/Sáng trong Settings | UI cập nhật toàn app ngay lập tức |
