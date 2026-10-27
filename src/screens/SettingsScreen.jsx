@@ -97,7 +97,6 @@ export default function SettingsScreen() {
           style={styles.actionRow}
         >
           <View style={styles.actionLeft}>
-            <Text style={styles.actionIcon}>🔄</Text>
             <View>
               <Text style={[styles.actionTitle, { color: colors.textPrimary }]}>
                 Khôi phục Profile mặc định
@@ -107,7 +106,6 @@ export default function SettingsScreen() {
               </Text>
             </View>
           </View>
-          <Text style={[styles.arrow, { color: colors.textMuted }]}>›</Text>
         </TouchableOpacity>
 
         <View style={[styles.divider, { backgroundColor: colors.cardBorder }]} />
@@ -118,7 +116,6 @@ export default function SettingsScreen() {
           style={styles.actionRow}
         >
           <View style={styles.actionLeft}>
-            <Text style={styles.actionIcon}>🗑️</Text>
             <View>
               <Text style={[styles.actionTitle, { color: colors.error }]}>
                 Xóa sạch AsyncStorage
@@ -128,7 +125,6 @@ export default function SettingsScreen() {
               </Text>
             </View>
           </View>
-          <Text style={[styles.arrow, { color: colors.textMuted }]}>›</Text>
         </TouchableOpacity>
       </View>
 
@@ -203,17 +199,12 @@ const styles = StyleSheet.create({
   actionRow: {
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'space-between',
     padding: 16,
   },
   actionLeft: {
     flexDirection: 'row',
     alignItems: 'center',
     flex: 1,
-  },
-  actionIcon: {
-    fontSize: 22,
-    marginRight: 14,
   },
   actionTitle: {
     fontSize: 15,
@@ -222,11 +213,6 @@ const styles = StyleSheet.create({
   actionSubtitle: {
     fontSize: 12,
     marginTop: 2,
-  },
-  arrow: {
-    fontSize: 22,
-    fontWeight: '300',
-    marginLeft: 10,
   },
   divider: {
     height: 1,

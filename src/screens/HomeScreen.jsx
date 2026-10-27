@@ -18,7 +18,7 @@ export default function HomeScreen({ navigation }) {
       {/* Header Chào mừng */}
       <View style={styles.header}>
         <Text style={[styles.greeting, { color: colors.textSecondary }]}>
-          Xin chào mừng trở lại 👋
+          Xin chào mừng trở lại
         </Text>
         <Text style={[styles.mainTitle, { color: colors.textPrimary }]}>
           Profile & Activity Hub
@@ -52,11 +52,6 @@ export default function HomeScreen({ navigation }) {
             {profile.bio}
           </Text>
         </View>
-        <View style={styles.arrowIcon}>
-          <Text style={{ color: colors.primary, fontSize: 18, fontWeight: '700' }}>
-            →
-          </Text>
-        </View>
       </TouchableOpacity>
 
       {/* Section Menu Điều hướng */}
@@ -78,9 +73,6 @@ export default function HomeScreen({ navigation }) {
             },
           ]}
         >
-          <View style={[styles.iconBox, { backgroundColor: '#DBEAFE' }]}>
-            <Text style={styles.icon}>👤</Text>
-          </View>
           <Text style={[styles.menuTitle, { color: colors.textPrimary }]}>
             Hồ sơ cá nhân
           </Text>
@@ -101,9 +93,6 @@ export default function HomeScreen({ navigation }) {
             },
           ]}
         >
-          <View style={[styles.iconBox, { backgroundColor: '#D1FAE5' }]}>
-            <Text style={styles.icon}>🎯</Text>
-          </View>
           <Text style={[styles.menuTitle, { color: colors.textPrimary }]}>
             Hoạt động
           </Text>
@@ -124,9 +113,6 @@ export default function HomeScreen({ navigation }) {
             },
           ]}
         >
-          <View style={[styles.iconBox, { backgroundColor: '#EDE9FE' }]}>
-            <Text style={styles.icon}>⚙️</Text>
-          </View>
           <Text style={[styles.menuTitle, { color: colors.textPrimary }]}>
             Cài đặt
           </Text>
@@ -210,9 +196,6 @@ const styles = StyleSheet.create({
     fontSize: 12,
     marginTop: 4,
   },
-  arrowIcon: {
-    marginLeft: 8,
-  },
   sectionTitle: {
     fontSize: 18,
     fontWeight: '700',
@@ -223,22 +206,9 @@ const styles = StyleSheet.create({
     marginBottom: 24,
   },
   menuCard: {
-    flexDirection: 'row',
-    alignItems: 'center',
     padding: 16,
     borderRadius: 16,
     borderWidth: 1,
-  },
-  iconBox: {
-    width: 46,
-    height: 46,
-    borderRadius: 14,
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginRight: 14,
-  },
-  icon: {
-    fontSize: 22,
   },
   menuTitle: {
     fontSize: 16,
@@ -247,7 +217,6 @@ const styles = StyleSheet.create({
   menuDesc: {
     fontSize: 12,
     marginTop: 2,
-    flex: 1,
   },
   techCard: {
     padding: 16,

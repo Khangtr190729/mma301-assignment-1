@@ -49,7 +49,7 @@ export default function ProfileScreen({ navigation }) {
           onPress={() => navigation.navigate('EditProfile')}
           style={[styles.editButton, { backgroundColor: colors.primary }]}
         >
-          <Text style={styles.editButtonText}>✎ Chỉnh sửa hồ sơ</Text>
+          <Text style={styles.editButtonText}>Chỉnh sửa hồ sơ</Text>
         </TouchableOpacity>
       </View>
 
@@ -69,7 +69,6 @@ export default function ProfileScreen({ navigation }) {
 
         {/* Email */}
         <View style={styles.infoRow}>
-          <Text style={styles.infoIcon}>✉️</Text>
           <View style={styles.infoContent}>
             <Text style={[styles.infoLabel, { color: colors.textMuted }]}>Email</Text>
             <Text style={[styles.infoValue, { color: colors.textPrimary }]}>
@@ -82,7 +81,6 @@ export default function ProfileScreen({ navigation }) {
 
         {/* Số điện thoại */}
         <View style={styles.infoRow}>
-          <Text style={styles.infoIcon}>📞</Text>
           <View style={styles.infoContent}>
             <Text style={[styles.infoLabel, { color: colors.textMuted }]}>
               Số điện thoại
@@ -97,7 +95,6 @@ export default function ProfileScreen({ navigation }) {
 
         {/* Vị trí */}
         <View style={styles.infoRow}>
-          <Text style={styles.infoIcon}>📍</Text>
           <View style={styles.infoContent}>
             <Text style={[styles.infoLabel, { color: colors.textMuted }]}>
               Địa chỉ / Cơ sở
@@ -112,7 +109,6 @@ export default function ProfileScreen({ navigation }) {
 
         {/* Ngày tham gia */}
         <View style={styles.infoRow}>
-          <Text style={styles.infoIcon}>🗓️</Text>
           <View style={styles.infoContent}>
             <Text style={[styles.infoLabel, { color: colors.textMuted }]}>
               Thời gian tham gia
@@ -135,7 +131,7 @@ export default function ProfileScreen({ navigation }) {
         ]}
       >
         <Text style={[styles.statusTitle, { color: colors.primary }]}>
-          💾 AsyncStorage Persistence Active
+          AsyncStorage Persistence Active
         </Text>
         <Text style={[styles.statusDesc, { color: colors.textSecondary }]}>
           Mọi thay đổi khi lưu sẽ được đồng bộ ngay vào AsyncStorage và giữ lại kể cả khi khởi động lại ứng dụng.
@@ -223,13 +219,7 @@ const styles = StyleSheet.create({
     marginBottom: 16,
   },
   infoRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
     paddingVertical: 8,
-  },
-  infoIcon: {
-    fontSize: 20,
-    marginRight: 14,
   },
   infoContent: {
     flex: 1,

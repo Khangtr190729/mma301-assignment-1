@@ -170,7 +170,7 @@ Làm chủ thành phần `FlatList` tối ưu hiệu năng danh sách dài (virt
 
 - Thay vì dùng `ScrollView` render toàn bộ dữ liệu cùng lúc, kiên quyết sử dụng `FlatList` với `keyExtractor={(item) => item.id}` để đáp ứng đúng tiêu chí R06 của rubric.
 - Áp dụng phương thức bất biến `activities.map(...)` để tạo ra tham chiếu mảng mới hoàn toàn khi toggle trạng thái, giúp React nhận biết thay đổi và kích hoạt re-render chính xác.
-- Tự thiết kế component Empty State có hình minh họa emoji 🔍, thông báo rõ ràng và nút bấm **"Đặt lại bộ lọc"** khi người dùng tìm kiếm từ khóa không có kết quả.
+- Tự thiết kế component Empty State với thông báo rõ ràng và nút bấm **"Đặt lại bộ lọc"** khi người dùng tìm kiếm từ khóa không có kết quả.
 - Bổ sung bộ đếm realtime hiển thị tổng số hoạt động phù hợp và số lượng hoạt động mà người dùng đã tham gia.
 
 ### Cách kiểm chứng và kết quả thực tế
@@ -178,7 +178,7 @@ Làm chủ thành phần `FlatList` tối ưu hiệu năng danh sách dài (virt
 | Lệnh hoặc bước kiểm tra | Kết quả thực tế |
 | :--- | :--- |
 | Mở màn hình `ActivityScreen` | `FlatList` hiển thị 6 hoạt động cuộn mượt mà, phân loại rõ ràng |
-| Nhấn nút "Tham gia hoạt động" tại item 2 | Nút chuyển thành "Hủy tham gia", badge đổi thành "✓ Đã tham gia" màu xanh lá, bộ đếm tăng thêm 1 |
+| Nhấn nút "Tham gia hoạt động" tại item 2 | Nút chuyển thành "Hủy tham gia", trạng thái đổi thành "Đã tham gia" màu xanh lá, bộ đếm tăng thêm 1 |
 | Chọn danh mục "Thể thao" | Danh sách lọc tức thì, chỉ hiển thị đúng các sự kiện thuộc danh mục Thể thao |
 | Nhập từ khóa tìm kiếm `"xyz123"` | Danh sách lọc về 0 phần tử, hiển thị component Empty State trực quan kèm nút reset |
 | Nhấn nút "Đặt lại bộ lọc" | Từ khóa xóa trắng, danh mục quay về "Tất cả", danh sách hiển thị đầy đủ trở lại |

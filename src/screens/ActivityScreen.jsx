@@ -56,7 +56,6 @@ export default function ActivityScreen() {
   // Component hiển thị khi danh sách rỗng (Empty State - R06)
   const renderEmptyComponent = () => (
     <View style={styles.emptyContainer}>
-      <Text style={styles.emptyIcon}>🔍</Text>
       <Text style={[styles.emptyTitle, { color: colors.textPrimary }]}>
         Không tìm thấy hoạt động nào
       </Text>
@@ -90,7 +89,6 @@ export default function ActivityScreen() {
             },
           ]}
         >
-          <Text style={styles.searchIcon}>🔍</Text>
           <TextInput
             value={searchQuery}
             onChangeText={setSearchQuery}
@@ -100,7 +98,7 @@ export default function ActivityScreen() {
           />
           {searchQuery !== '' && (
             <TouchableOpacity onPress={() => setSearchQuery('')}>
-              <Text style={[styles.clearSearch, { color: colors.textMuted }]}>✕</Text>
+              <Text style={[styles.clearSearch, { color: colors.textMuted }]}>Xóa</Text>
             </TouchableOpacity>
           )}
         </View>
@@ -180,18 +178,14 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
     marginBottom: 10,
   },
-  searchIcon: {
-    fontSize: 16,
-    marginRight: 8,
-  },
   searchInput: {
     flex: 1,
     fontSize: 15,
   },
   clearSearch: {
-    fontSize: 14,
+    fontSize: 12,
     paddingHorizontal: 6,
-    fontWeight: '700',
+    fontWeight: '600',
   },
   categoryScroll: {
     paddingBottom: 8,
@@ -228,10 +222,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     padding: 36,
     marginTop: 40,
-  },
-  emptyIcon: {
-    fontSize: 48,
-    marginBottom: 12,
   },
   emptyTitle: {
     fontSize: 17,

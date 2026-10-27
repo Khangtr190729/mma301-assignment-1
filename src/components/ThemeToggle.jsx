@@ -19,14 +19,6 @@ export default function ThemeToggle({ showLabel = true, style }) {
       ]}
     >
       <View style={styles.leftSection}>
-        <View
-          style={[
-            styles.iconBadge,
-            { backgroundColor: isDark ? '#1E3A8A' : '#FEF3C7' },
-          ]}
-        >
-          <Text style={styles.iconText}>{isDark ? '🌙' : '☀️'}</Text>
-        </View>
         {showLabel && (
           <View style={styles.textContainer}>
             <Text style={[styles.title, { color: colors.textPrimary }]}>
@@ -62,17 +54,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     flex: 1,
-  },
-  iconBadge: {
-    width: 40,
-    height: 40,
-    borderRadius: 20,
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginRight: 12,
-  },
-  iconText: {
-    fontSize: 20,
   },
   textContainer: {
     flex: 1,

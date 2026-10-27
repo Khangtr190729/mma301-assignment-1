@@ -314,7 +314,7 @@ export default function EditProfileScreen({ navigation }) {
               ]}
             >
               <Text style={styles.saveButtonText}>
-                {isSubmitting ? 'Đang lưu...' : '💾 Lưu thay đổi'}
+                {isSubmitting ? 'Đang lưu...' : 'Lưu thay đổi'}
               </Text>
             </TouchableOpacity>
 
@@ -343,7 +343,7 @@ export default function EditProfileScreen({ navigation }) {
             style={styles.resetButton}
           >
             <Text style={[styles.resetButtonText, { color: colors.textSecondary }]}>
-              ↺ Khôi phục giá trị form ban đầu
+              Khôi phục giá trị form ban đầu
             </Text>
           </TouchableOpacity>
         </View>

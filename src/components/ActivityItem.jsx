@@ -48,7 +48,7 @@ export default function ActivityItem({ item, onToggleJoin }) {
               { color: item.isJoined ? colors.success : colors.textMuted },
             ]}
           >
-            {item.isJoined ? '✓ Đã tham gia' : 'Chưa tham gia'}
+            {item.isJoined ? 'Đã tham gia' : 'Chưa tham gia'}
           </Text>
         </View>
       </View>
@@ -65,13 +65,11 @@ export default function ActivityItem({ item, onToggleJoin }) {
       {/* Meta info (Thời gian, Địa điểm) */}
       <View style={styles.metaContainer}>
         <View style={styles.metaRow}>
-          <Text style={styles.metaIcon}>📅</Text>
           <Text style={[styles.metaText, { color: colors.textSecondary }]}>
             {item.date} • {item.time}
           </Text>
         </View>
         <View style={styles.metaRow}>
-          <Text style={styles.metaIcon}>📍</Text>
           <Text style={[styles.metaText, { color: colors.textSecondary }]}>
             {item.location}
           </Text>
@@ -104,7 +102,7 @@ export default function ActivityItem({ item, onToggleJoin }) {
             { color: item.isJoined ? colors.textPrimary : '#FFFFFF' },
           ]}
         >
-          {item.isJoined ? 'Hủy tham gia' : '+ Tham gia hoạt động'}
+          {item.isJoined ? 'Hủy tham gia' : 'Tham gia hoạt động'}
         </Text>
       </TouchableOpacity>
     </View>
@@ -165,10 +163,6 @@ const styles = StyleSheet.create({
   metaRow: {
     flexDirection: 'row',
     alignItems: 'center',
-  },
-  metaIcon: {
-    fontSize: 13,
-    marginRight: 6,
   },
   metaText: {
     fontSize: 13,
